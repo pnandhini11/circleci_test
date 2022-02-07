@@ -24,7 +24,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "print world"
+          name: "print World"
           command: "echo hi world"
 
   
@@ -37,5 +37,5 @@ workflows:
   say-hi-world-workflow:
     jobs:
       - print-world
-      requires:
-        - say-hello
+    requires:
+      - say-hello
