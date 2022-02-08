@@ -24,9 +24,6 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "Set the environment variable"
-          command: echo  'export MY_ENV_VAR = "Test" '  >> $BASH_ENV
-      - run:
           name: "print World"
           command: "echo hi world"
       - run:
@@ -36,6 +33,31 @@ jobs:
       - run:
           name: "What branch am I on now?"
           command: echo $CIRCLE_BRANCH
+  save_hello_world_output:
+
+    docker:
+      - image: circleci/node:13.8.0
+
+    steps:
+      - checkout
+      - run:
+          name: "saving the output file"
+          command: echo "text to output here" > output.txt
+      - persist_to_workspace:
+          root: /tmp/dir
+          paths:
+            - output.txt
+  
+  print_output_file:
+
+    docker:
+      - image: circleci/node:13.8.0
+
+    steps:
+      - checkout
+      - attach_workspace:
+          at: /tmp/dir
+      - run: cat ./output.txt
 
   
 # Invoke jobs via workflows
@@ -44,6 +66,7 @@ workflows:
   say-hello-workflow:
     jobs:
       - say-hello
-      - print-world:
+      - save_hello_world_output
+      - print_output_file:
           requires:
-            - say-hello
+            - save_hello_world_output
