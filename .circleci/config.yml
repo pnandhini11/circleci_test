@@ -44,7 +44,7 @@ jobs:
           name: "saving the output file"
           command: echo "text to output here" > output.txt
       - persist_to_workspace:
-          root: /users/aris/documents/github/circleci_test
+          root: C:/Users/aris/Documents/GitHub/circleci_test
           paths:
             - output.txt
   
