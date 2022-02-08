@@ -44,7 +44,7 @@ jobs:
           name: "saving the output file"
           command: echo "text to output here" > output.txt
       - persist_to_workspace:
-          root: home/Users/nandhinia/circleci_test
+          root: ~/
           paths:
             - output.txt
   
@@ -56,7 +56,7 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: /users/nandhinia/circleci_test
+          at: ~/
       - run: cat ./output.txt
 
   
