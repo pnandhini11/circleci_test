@@ -24,6 +24,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: "Set the environment variable"
+          command: echo  'export MY_ENV_VAR = "Test" ' 
+      - run:
           name: "print World"
           command: "echo hi world"
       - run:
