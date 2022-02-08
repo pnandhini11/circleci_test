@@ -46,7 +46,7 @@ jobs:
       - persist_to_workspace:
           root: /Users/nandhinia/circleci_test
           paths:
-            - /Users/nandhinia/circleci_test/output.txt
+            - circleci_test/output.txt
   
   print_output_file:
 
