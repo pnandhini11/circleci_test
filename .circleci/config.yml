@@ -56,8 +56,8 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: /Users/nandhinia/circleci_test
-      - run: cat ./output.txt
+          at: /home/Users/nandhinia/circleci_test
+      - run: cat /output.txt
 
   
 # Invoke jobs via workflows
