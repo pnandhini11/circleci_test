@@ -25,7 +25,7 @@ jobs:
       - checkout
       - run:
           name: "Set the environment variable"
-          command: echo  'export MY_ENV_VAR = "Test" ' 
+          command: echo  'export MY_ENV_VAR = "Test" '  >> $BASH_ENV
       - run:
           name: "print World"
           command: "echo hi world"
