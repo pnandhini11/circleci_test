@@ -26,6 +26,10 @@ jobs:
       - run:
           name: "print World"
           command: "echo hi world"
+      - run:
+          name: "echo an env var that is part of our context"
+          command: |
+            echo $MY_ENV_VAR
 
   
 # Invoke jobs via workflows
@@ -34,6 +38,6 @@ workflows:
   say-hello-workflow:
     jobs:
       - say-hello
-  say-hi-world-workflow:
-    jobs:
-      - print-world
+      - print-world:
+          requires:
+            - say-hello
