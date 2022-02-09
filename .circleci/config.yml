@@ -42,7 +42,16 @@ jobs:
     steps:
       - print_pipeline_id
 
+  test-failure:
 
+    docker:
+      - image: circleci/node:13.
+    steps:
+      - run: exit 1
+      - run:    
+          name: "on fail"
+          command: echo "Yes, its failure"
+          when: on_fail
 
   
 
@@ -54,4 +63,5 @@ workflows:
     jobs:
       - say-hello
       - save_hello_world_output
+      - test-failure
 
