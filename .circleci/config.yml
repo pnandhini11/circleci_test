@@ -47,7 +47,7 @@ jobs:
       - persist_to_workspace:
           root: /tmp/circleci/project
           paths:
-            - /project/output.txt
+            - project/output.txt
   
   print_output_file:
 
