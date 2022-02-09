@@ -42,11 +42,11 @@ jobs:
 
     steps:
       - checkout
-      - run: mkdir -p /home/circleci/project
+      - run: mkdir -p /tmp/workspace
       - run:
           name: "saving the output file"
           command: echo "text to output here" > output.txt
-      
+
   
   print_output_file:
 
