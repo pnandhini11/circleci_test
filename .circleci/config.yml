@@ -59,8 +59,8 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: /tmp/circleci/project
-      - run: cat project/output.txt
+          at: .
+      - run: cat output.txt
 
   
 # Invoke jobs via workflows
