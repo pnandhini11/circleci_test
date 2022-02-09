@@ -35,17 +35,19 @@ jobs:
           command: echo $CIRCLE_BRANCH
   save_hello_world_output:
 
+    working_directory: .
+
     docker:
       - image: circleci/node:13.8.0
 
     steps:
       - checkout
-      - run: mkdir -p /usr/bin/circleci/project
+      
       - run:
           name: "saving the output file"
           command: echo "text to output here" > output.txt
       - persist_to_workspace:
-          root: /usr/bin/circleci/project
+          root: /root
           paths:
             - output.txt
   
