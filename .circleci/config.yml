@@ -40,13 +40,14 @@ jobs:
 
     steps:
       - checkout
+      - run: mkdir -p ~/
       - run:
           name: "saving the output file"
           command: echo "text to output here" > output.txt
       - persist_to_workspace:
-          root: /home/Users/nandhinia/circleci_test
+          root: ~/
           paths:
-            - circleci_test/output.txt
+            - output.txt
   
   print_output_file:
 
@@ -56,8 +57,8 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: /home/Users/nandhinia/circleci_test
-      - run: cat /output.txt
+          at: ~/
+      - run: cat ~/output.txt
 
   
 # Invoke jobs via workflows
