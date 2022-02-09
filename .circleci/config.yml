@@ -40,14 +40,14 @@ jobs:
 
     steps:
       - checkout
-      - run: mkdir -p ~/
+      - run: mkdir -p ~/sample
       - run:
           name: "saving the output file"
           command: echo "text to output here" > output.txt
       - persist_to_workspace:
           root: ~/
           paths:
-            - output.txt
+            - sample/output.txt
   
   print_output_file:
 
