@@ -57,8 +57,8 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: ~/
-      - run: cat ~/output.txt
+          at: ~/sample
+      - run: cat ~/sample/output.txt
 
   
 # Invoke jobs via workflows
