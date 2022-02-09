@@ -45,7 +45,7 @@ jobs:
           name: "saving the output file"
           command: echo "text to output here" > output.txt
       - persist_to_workspace:
-          root: ~/
+          root: ~/sample
           paths:
             - sample/output.txt
   
