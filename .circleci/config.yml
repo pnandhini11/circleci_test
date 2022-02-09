@@ -35,7 +35,7 @@ jobs:
           command: echo $CIRCLE_BRANCH
   save_hello_world_output:
 
-    working_directory: .
+    working_directory: /usr/bin/git/
 
     docker:
       - image: circleci/node:13.8.0
